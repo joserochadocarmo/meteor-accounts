@@ -5,7 +5,7 @@ Router.configure({
 Router.map(function() {
 	this.route('index', {
 		path: '/',
-		template: 'home'
+		template: 'loading'
 	});
 
 	this.route('home', {
