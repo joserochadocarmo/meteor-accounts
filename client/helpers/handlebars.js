@@ -2,11 +2,6 @@ Handlebars.registerHelper('isAdminUser', function() {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 });
 
-Template.registerHelper('getBody', function() {
-    return Session.get('splashLoaded') ? 'home' : 'loading';
-});
-
-
 Template.loading.rendered = function() {
     // launch splash
     this.loading = window.pleaseWait({
@@ -19,12 +14,10 @@ Template.loading.rendered = function() {
     var loading = this.loading;
     Meteor.setTimeout(function() {
         loading.finish();
-        //Session.set('splashLoaded', true);
     }, 3000);
 };
 
 Template.loading.destroyed = function() {
-	//Session.set('splashLoaded', true);
     this.loading.finish();
 };
 

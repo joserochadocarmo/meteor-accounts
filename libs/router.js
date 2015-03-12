@@ -5,17 +5,20 @@ Router.configure({
 Router.map(function() {
 	this.route('index', {
 		path: '/',
-		template: 'loading'
+		template: 'home',
+		fastRender: true
 	});
 
 	this.route('home', {
 		path: '/home',
-		template: 'home'
+		template: 'home',
+		fastRender: true
 	});
 
 	this.route('dashboard', {
 		path: '/dashboard',
-		template: 'home'
+		template: 'home',
+		fastRender: true
 	});
 	
 
