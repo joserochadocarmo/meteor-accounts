@@ -13,3 +13,5 @@ accounts-google
 joshowens:accounts-entry
 pcel:loading
 meteorhacks:fast-render
+accounts-ui
+accounts-twitter

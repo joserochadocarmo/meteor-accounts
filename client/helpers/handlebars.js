@@ -1,6 +1,54 @@
+
+// Accounts.ui.config({
+//     requestPermissions: {
+//         google: 
+//         ['https://www.googleapis.com/auth/calendar',
+//         'https://www.googleapis.com/auth/calendar.readonly',
+//         'https://www.googleapis.com/auth/userinfo.profile',
+//         'https://www.googleapis.com/auth/userinfo.email',
+//         'https://www.googleapis.com/auth/tasks'], 
+//         forceApprovalPrompt: true
+//     }, 
+//     forceApprovalPrompt: {google: true},
+//     requestOfflineToken: {google: true},
+//     passwordSignupFields: 'EMAIL_ONLY',
+//     extraSignupFields: []
+// });
+
+Accounts.ui.config({
+  requestPermissions: {
+  	google: 
+        ['https://www.googleapis.com/auth/calendar',
+        'https://www.googleapis.com/auth/calendar.readonly',
+        'https://www.googleapis.com/auth/userinfo.profile',
+        'https://www.googleapis.com/auth/userinfo.email',
+        'https://www.googleapis.com/auth/tasks'],
+    
+  },
+  requestOfflineToken: {
+    google: true
+  },
+  passwordSignupFields: 'USERNAME_AND_EMAIL',
+  extraSignupFields: [{
+        fieldName: 'name',
+        fieldLabel: 'Name',
+        validate: function(value, errorFn) {
+            if (value == '') {
+                errorFn('Name must have a value');
+                return false;
+            }
+            return true;
+        }
+    },{
+        fieldName: 'surname',
+        fieldLabel: 'Surname'
+    }]
+});
+
 Handlebars.registerHelper('isAdminUser', function() {
     return Roles.userIsInRole(Meteor.user(), ['admin']);
 });
+
 
 Template.loading.rendered = function() {
     // launch splash
@@ -43,7 +91,7 @@ var messages = [
 ];
 
 // Backgrounds
-var backgrounds = ['#7f8c8d', '#1abc9c', '#2980b9', '#7f8c8d',
+var backgrounds = ['#1abc9c','#7f8c8d', '#2980b9', '#7f8c8d',
     '#f1c40f', '#27ae60', '#7f8c8d', '#7f8c8d'
 ];
 
