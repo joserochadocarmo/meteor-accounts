@@ -1,9 +1,7 @@
 <template name="layout">
-    {{#unless currentUser}}
-    	{{> loading}} 
-    {{/unless}}
     {{> header }}
     <div class="container">
         {{> yield}}
     </div>
+    
 </template>
